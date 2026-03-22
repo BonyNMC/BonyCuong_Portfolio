@@ -12,7 +12,7 @@
 
 ## 3. Công Nghệ Sử Dụng (Tech Stack)
 - **Frontend:** React.js bootstrapped bằng Vite (tốc độ cao).
-- **Styling:** Tailwind CSS (Custom theme với bảng màu Thổ/Hỏa và phông chữ Inter/Outfit).
+- **Styling:** Tailwind CSS (Custom theme với bảng màu Thổ/Hỏa và phông chữ **Be Vietnam Pro** — hỗ trợ tiếng Việt tối ưu).
 - **Routing:** React Router DOM.
 - **Backend/BaaS:** Supabase (Auth, PostgreSQL Database, Object Storage).
 - **Icons & Animation:** `lucide-react` cho icons, `framer-motion` cho transition mượt mà.
@@ -36,6 +36,7 @@
 | `title` | Text | Tiêu đề bài viết |
 | `excerpt` | Text | Đoạn tóm tắt ngắn |
 | `content` | Text | Nội dung đầy đủ |
+| `cover_image_url` | Text | URL ảnh bìa bài viết (tuỳ chọn) |
 | `created_at` | Timestamptz | Thời gian tạo |
 
 ### Bảng `site_config` (Cấu hình trang web — single-row)
@@ -86,6 +87,8 @@ cuong-portfolio/
   - Khởi tạo trang `ProjectDetail.jsx` và `BlogDetail.jsx`.
   - Fetch dữ liệu động qua tham số URL ID.
   - Tích hợp `framer-motion` tạo hiệu ứng Fade-in Slide-up cực mượt khi chuyển trang giữa Home ↔ Detail.
+- [x] **[MỚI] Font Be Vietnam Pro**: Thay Inter/Outfit bằng Be Vietnam Pro để hiển thị tiếng Việt mượt mà trên toàn bộ trang.
+- [x] **[MỚI] Blog Cover Image**: Thêm cột `cover_image_url` vào bảng `blog_posts`; Admin form có trường nhập URL + preview ảnh; BlogDetail hiển thị ảnh bìa full-width bên dưới tiêu đề.
 
 ---
 *(Tệp này được tự động cập nhật sau mỗi tính năng quan trọng mới).*

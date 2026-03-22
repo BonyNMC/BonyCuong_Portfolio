@@ -4,7 +4,7 @@ import { supabase } from '../supabaseClient';
 
 export default function AdminBlog() {
   const [blogs, setBlogs] = useState([]);
-  const [blogForm, setBlogForm] = useState({ title: '', excerpt: '', content: '' });
+  const [blogForm, setBlogForm] = useState({ title: '', excerpt: '', content: '', cover_image_url: '' });
 
   useEffect(() => { fetchBlogs(); }, []);
 
@@ -19,9 +19,10 @@ export default function AdminBlog() {
       title: blogForm.title,
       excerpt: blogForm.excerpt,
       content: blogForm.content,
+      cover_image_url: blogForm.cover_image_url || null,
     }]);
     if (error) alert(error.message);
-    else { setBlogForm({ title: '', excerpt: '', content: '' }); fetchBlogs(); }
+    else { setBlogForm({ title: '', excerpt: '', content: '', cover_image_url: '' }); fetchBlogs(); }
   };
 
   const deleteBlog = async (id) => {
@@ -51,6 +52,27 @@ export default function AdminBlog() {
           onChange={e => setBlogForm({ ...blogForm, excerpt: e.target.value })}
           className="w-full p-3 border-2 border-earth-200 focus:border-fire-400 outline-none"
         />
+
+        {/* Cover Image URL */}
+        <div className="space-y-2">
+          <input
+            type="url" placeholder="Ảnh bìa (Cover Image URL) — dán link ảnh vào đây"
+            value={blogForm.cover_image_url}
+            onChange={e => setBlogForm({ ...blogForm, cover_image_url: e.target.value })}
+            className="w-full p-3 border-2 border-earth-200 focus:border-fire-400 outline-none"
+          />
+          {blogForm.cover_image_url && (
+            <div className="border-2 border-earth-200 overflow-hidden w-full h-48">
+              <img
+                src={blogForm.cover_image_url}
+                alt="Cover preview"
+                className="w-full h-full object-cover"
+                onError={e => { e.target.style.display = 'none'; }}
+              />
+            </div>
+          )}
+        </div>
+
         <textarea
           placeholder="Full Content (Markdown supported)" required rows={8}
           value={blogForm.content}
@@ -66,9 +88,15 @@ export default function AdminBlog() {
       <div className="space-y-4">
         {blogs.length === 0 && <p className="text-earth-600 font-bold uppercase">No articles yet.</p>}
         {blogs.map(b => (
-          <div key={b.id} className="bg-white p-4 border border-earth-200 shadow flex justify-between items-center hover:shadow-md transition-shadow">
-            <div>
-              <h5 className="font-bold text-earth-900 uppercase">{b.title}</h5>
+          <div key={b.id} className="bg-white p-4 border border-earth-200 shadow flex justify-between items-center hover:shadow-md transition-shadow gap-4">
+            {/* Thumbnail */}
+            {b.cover_image_url && (
+              <div className="shrink-0 w-16 h-16 overflow-hidden border border-earth-200">
+                <img src={b.cover_image_url} alt={b.title} className="w-full h-full object-cover" />
+              </div>
+            )}
+            <div className="flex-1 min-w-0">
+              <h5 className="font-bold text-earth-900 uppercase truncate">{b.title}</h5>
               <p className="text-xs text-earth-500 font-bold uppercase tracking-wider mt-1">
                 {new Date(b.created_at).toLocaleDateString('vi-VN')}
               </p>

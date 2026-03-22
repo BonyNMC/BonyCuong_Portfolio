@@ -56,7 +56,7 @@ export default function BlogDetail() {
         <article className="bg-white p-8 md:p-12 border-l-8 border-fire-500 shadow-2xl">
           <header className="mb-10 text-center">
             <h1 className="text-4xl md:text-5xl font-extrabold text-earth-900 font-headings uppercase mb-6 leading-tight">
-              {post.title}
+              {post.title?.normalize('NFC')}
             </h1>
             <div className="flex items-center justify-center gap-2 text-fire-600 font-bold uppercase tracking-widest text-sm">
               <Calendar size={18} />
@@ -64,8 +64,19 @@ export default function BlogDetail() {
             </div>
           </header>
 
-          <div className="prose prose-earth prose-lg max-w-none text-earth-800 leading-relaxed font-serif whitespace-pre-wrap">
-            {post.content}
+          {/* Cover Image */}
+          {post.cover_image_url && (
+            <div className="mb-10 -mx-8 md:-mx-12 overflow-hidden border-b-4 border-fire-500">
+              <img
+                src={post.cover_image_url}
+                alt={post.title}
+                className="w-full max-h-96 object-cover"
+              />
+            </div>
+          )}
+
+          <div className="prose prose-earth prose-lg max-w-none text-earth-800 leading-relaxed whitespace-pre-wrap">
+            {post.content?.normalize('NFC')}
           </div>
         </article>
       </main>
