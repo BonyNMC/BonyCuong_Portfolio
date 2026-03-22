@@ -12,7 +12,7 @@ const pageVariants = {
 };
 
 const MainLayout = ({ children, config }) => (
-  <motion.div 
+  <motion.div
     variants={pageVariants}
     initial="initial"
     animate="animate"
@@ -28,7 +28,7 @@ const MainLayout = ({ children, config }) => (
         <a href="#blog" className="hover:text-fire-200 transition-colors uppercase font-bold text-sm">Blog</a>
       </nav>
     </header>
-    
+
     <main className="flex-1 max-w-7xl mx-auto w-full p-8 space-y-24">
       {children}
     </main>
@@ -36,7 +36,7 @@ const MainLayout = ({ children, config }) => (
     <footer className="bg-earth-900 text-earth-200 p-12 mt-24">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
         <p className="uppercase tracking-widest text-xs font-bold">&copy; {new Date().getFullYear()} Nguyễn Mạnh Cường. All rights reserved.</p>
-        
+
         {/* Social Links in Footer */}
         {config && (
           <div className="flex gap-6">
@@ -84,7 +84,7 @@ const ProjectsSection = () => {
       <div className="text-center mb-12">
         <h3 className="text-4xl font-bold text-earth-900 font-headings uppercase border-b-4 border-earth-200 pb-2 inline-block">Projects</h3>
       </div>
-      
+
       {loading ? (
         <p className="text-center text-earth-700 font-bold uppercase tracking-widest">Loading projects...</p>
       ) : projects.length === 0 ? (
@@ -134,7 +134,7 @@ const BlogSection = () => {
       <div className="text-center mb-12">
         <h3 className="text-4xl font-bold text-earth-900 font-headings uppercase border-b-4 border-fire-200 pb-2 inline-block">Latest Articles</h3>
       </div>
-      
+
       {loading ? (
         <p className="text-center text-earth-700 font-bold uppercase tracking-widest">Loading articles...</p>
       ) : posts.length === 0 ? (
@@ -184,7 +184,7 @@ export default function Home() {
       });
   }, []);
 
-  const TECH_STACK = ['React', 'Tailwind CSS', 'Supabase', 'Node.js', 'Vite'];
+  const TECH_STACK = ['Độc lập', 'Tự do', 'Hiểu mình', 'Sáng tạo', 'Hạnh phúc'];
 
   return (
     <MainLayout config={config}>
@@ -212,7 +212,7 @@ export default function Home() {
           >
             Get In Touch
           </a>
-          
+
           {/* Social Links Hero */}
           <div className="flex gap-4 mt-4">
             {config.facebook_url && (
