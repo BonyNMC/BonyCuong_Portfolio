@@ -89,6 +89,7 @@ cuong-portfolio/
   - Tích hợp `framer-motion` tạo hiệu ứng Fade-in Slide-up cực mượt khi chuyển trang giữa Home ↔ Detail.
 - [x] **[MỚI] Font Be Vietnam Pro**: Thay Inter/Outfit bằng Be Vietnam Pro để hiển thị tiếng Việt mượt mà trên toàn bộ trang.
 - [x] **[MỚI] Blog Cover Image**: Thêm cột `cover_image_url` vào bảng `blog_posts`; Admin form có trường nhập URL + preview ảnh; BlogDetail hiển thị ảnh bìa full-width bên dưới tiêu đề.
+- [x] **[MỚI] Image Display Fix**: Đổi `object-cover` → `object-contain` trong `BlogDetail.jsx` và `ProjectDetail.jsx` để hiển thị toàn bộ ảnh (đặc biệt ảnh dọc), căn giữa trên nền `earth-100`.
 
 ---
 *(Tệp này được tự động cập nhật sau mỗi tính năng quan trọng mới).*

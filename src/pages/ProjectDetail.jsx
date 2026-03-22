@@ -65,8 +65,8 @@ export default function ProjectDetail() {
         </div>
 
         {project.image_url && (
-          <div className="border-4 border-earth-400 p-2 shadow-xl bg-white">
-            <img src={project.image_url} alt={project.title} className="w-full h-auto object-cover max-h-[500px]" />
+          <div className="border-4 border-earth-400 p-2 shadow-xl bg-earth-100 flex justify-center">
+            <img src={project.image_url} alt={project.title} className="max-w-full max-h-[600px] object-contain" />
           </div>
         )}
 

@@ -66,11 +66,11 @@ export default function BlogDetail() {
 
           {/* Cover Image */}
           {post.cover_image_url && (
-            <div className="mb-10 -mx-8 md:-mx-12 overflow-hidden border-b-4 border-fire-500">
+            <div className="mb-10 -mx-8 md:-mx-12 overflow-hidden border-b-4 border-fire-500 bg-earth-100 flex justify-center">
               <img
                 src={post.cover_image_url}
                 alt={post.title}
-                className="w-full max-h-96 object-cover"
+                className="max-w-full max-h-[600px] object-contain"
               />
             </div>
           )}
